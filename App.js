@@ -31,6 +31,26 @@ const soundList = {
 
 export default class App extends React.Component {
 
+  playSound = async num => {
+    const soundObject = new Audio.Sound(); // sound object
+    try {
+      let path = soundList[num];
+      await soundObject.loadAsync(path);
+      await soundObject
+        .playAsync()
+        .then(async playbackStatus => {
+          setTimeout(() => {
+            soundObject.unloadAsync();
+          }, playbackStatus.playableDurationMillis);
+        }).catch(error => {
+          console.log(error);
+        })
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
