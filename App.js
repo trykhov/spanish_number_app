@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { Audio } from 'expo';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Audio } from 'expo-av';
 
 
 const listBackgroundColor = {
@@ -53,9 +53,138 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>OSpanish</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.gridContainer}>
+            <Image style={styles.logo} source={require('./assets/logo.png')}/>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[1]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("one")
+              }}
+              >
+              <Text style={styles.itemText}>One</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[2]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("two")
+              }}
+              >
+              <Text style={styles.itemText}>Two</Text>
+
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[3]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("three")
+              }}
+              >
+              <Text style={styles.itemText}>Three</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[4]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("four")
+              }}
+              >
+              <Text style={styles.itemText}>Four</Text>
+              
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[5]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("five")
+              }}
+              >
+              <Text style={styles.itemText}>Five</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[6]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("six")
+              }}
+              >
+              <Text style={styles.itemText}>Six</Text>
+              
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[7]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("seven")
+              }}
+              >
+              <Text style={styles.itemText}>Seven</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[8]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("eight")
+              }}
+              >
+              <Text style={styles.itemText}>Eight</Text>
+              
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[9]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("nine")
+              }}
+              >
+              <Text style={styles.itemText}>Nine</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  {backgroundColor: listBackgroundColor[10]},
+                  styles.item
+              ]}
+              onPress={() => {
+                this.playSound("ten")
+              }}
+              >
+              <Text style={styles.itemText}>Ten</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+        <Image style={styles.logo} source={require('./assets/logo.png')}/>
+      </ScrollView>
     )
   }
 }
@@ -63,8 +192,28 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
+  gridContainer: {
+    flex: 1,
+    margin: 5
+  },
+  logo: {
+    alignSelf: "center",
+    marginTop: 15
+  },
+  rowContainer: {
+    flexDirection: "row"
+  },
+  item: {
+    flex: 1,
+    height: 110,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 2
+  },
+  itemText: {
+    color: "#FFF",
+    fontSize: 20
+  }
 });
